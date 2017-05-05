@@ -94,7 +94,10 @@ public class ShippingAddress implements Serializable{
 
     @Override
     public String toString() {
-        return "ShippingAddress{" +
+//here u need to reduce the text, removing to see it
+    	
+    	
+    	return "ShippingAddress{" +
                 "streetName='" + streetName + '\'' +
                 ", apartmentNumber='" + apartmentNumber + '\'' +
                 ", city='" + city + '\'' +
@@ -103,4 +106,13 @@ public class ShippingAddress implements Serializable{
                 ", zipCode='" + zipCode + '\'' +
                 '}';
     }
+
+	public String toString2() {
+		return 
+                streetName + ' ' +
+                apartmentNumber + ' ' +
+                city + ' ' +
+                state + ' ' +
+                country + ' ' +
+                zipCode + ' '  ;	}
 }

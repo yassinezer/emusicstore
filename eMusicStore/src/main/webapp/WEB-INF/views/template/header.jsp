@@ -36,6 +36,7 @@
 
     <!-- Main CSS -->
     <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/viewProduct.css" />" rel="stylesheet">
 
     <link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
 

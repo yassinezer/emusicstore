@@ -42,13 +42,22 @@
                     <c:if test="${role eq 'admin'}">
                         <c:set var="url" scope="page" value="/admin/productInventory" />
                     </c:if>
-
+					
                     <p ng-controller="cartCtrl">
                         <a href="<c:url value="${url}" />" class="btn btn-default">Back</a>
                         <a href="#" class="btn btn-warning btn-large"
                            ng-click="addToCart('${product.productId}')"><span
                                 class="glyphicon glyphicon-shopping-cart"></span>Order
                             Now</a>
+	                        <div class="col-sm-2">
+							  <div class="input-group spinner">
+							    <input type="text" class="form-control" value="1" min="1" max="100" id="quantity" readonly="readonly">
+							    <div class="input-group-btn-vertical">
+							      <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+							      <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+							    </div>
+							  </div>
+							 </div>
                         <a href="<spring:url value="/customer/cart" />"
                            class="btn btn-default"><span class="glyphicon glyphicon-hand-right"></span>View Cart</a>
                     </p>

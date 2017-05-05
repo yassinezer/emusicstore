@@ -86,27 +86,27 @@ public class CustomerDaoImpl implements CustomerDao{
     }
 
 	@Override
-	public void setProcessing(Customer customer, Product product) {
+	public void setProcessing(Customer customer, Product product, int quantity) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from ProcessOrder where productid = ? and customerid = ?");
+        /*Query query = session.createQuery("from ProcessOrder where productid = ? and customerid = ?");
         query.setInteger(0, product.getProductId());
         query.setInteger(1, customer.getCustomerId());
         ProcessOrder pOrder =(ProcessOrder) query.uniqueResult();
-        if(pOrder==null){
+        if(pOrder==null){*/
         ProcessOrder _pOrder = new ProcessOrder();
         _pOrder.setCustomerid(customer.getCustomerId());
-        _pOrder.setShippingAdress(customer.getShippingAddress().toString());
+        _pOrder.setShippingAdress(customer.getShippingAddress().toString2());
         _pOrder.setCustomerName(customer.getCustomerName());
         _pOrder.setProductid(product.getProductId());
         _pOrder.setProductname(product.getProductName());
         _pOrder.setStatus(false);
-        _pOrder.setQuantity(1);
+        _pOrder.setQuantity(quantity);
         session.saveOrUpdate(_pOrder);
-        }
+        /*}
         else{
         	pOrder.setQuantity(pOrder.getQuantity()+1);	
         	session.saveOrUpdate(pOrder);
-        }
+        }*/
 	}
 
 	@SuppressWarnings("unchecked")

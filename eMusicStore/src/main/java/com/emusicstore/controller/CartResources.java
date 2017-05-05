@@ -72,14 +72,15 @@ public class CartResources {
         cartItemService.addCartItem(cartItem);
     }
     
-    @RequestMapping(value = "/processing/{productId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/processing/{productId}/{quantity}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void process (@PathVariable(value ="productId") int productId, @AuthenticationPrincipal User activeUser) {
+    public void process (@PathVariable(value ="productId") int productId, @PathVariable(value ="quantity") int quantity,
+    		@AuthenticationPrincipal User activeUser) {
 
         Customer customer = customerService.getCustomerByUsername(activeUser.getUsername());
         if(customer!=null){
         Product product = productService.getProductById(productId);
-        customerService.setProcessing(customer,product);
+        customerService.setProcessing(customer,product,quantity);
         }
     }
     

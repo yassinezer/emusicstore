@@ -38,8 +38,8 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
 	@Override
-	public void setProcessing(Customer customer, Product product) {
-		customerDao.setProcessing(customer, product) ;
+	public void setProcessing(Customer customer, Product product, int quantity) {
+		customerDao.setProcessing(customer, product, quantity) ;
 	}
 
 	@Override

@@ -20,8 +20,9 @@ public interface CustomerDao {
 
     Customer getCustomerByUsername (String username);
 
-    /**insert new product as processing with the specified customer*/
-	void setProcessing(Customer customer, Product product);
+    /**insert new product as processing with the specified customer
+     * @param quantity */
+	void setProcessing(Customer customer, Product product, int quantity);
 
     /**fetch all processing orders for all customers*/
 	Set<ProcessOrder> getAllProcessingOrder();

@@ -19,8 +19,11 @@ public interface CustomerService {
     List<Customer> getAllCustomers();
 
     Customer getCustomerByUsername (String username);
-    /** add a product on process mode with the customer*/
-	void setProcessing(Customer customer, Product product);
+    /** add a product on process mode with the customer
+     * @param customer 
+     * @param product
+     * @param quantity*/
+	void setProcessing(Customer customer, Product product, int quantity);
     /** get all process order for all customers*/
 	Set<ProcessOrder> getAllProcessingOrder();
     /** accept Order of one customer*/

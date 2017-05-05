@@ -1,6 +1,26 @@
 /**
  * Created by Le on 1/11/2016.
  */
+$('.spinner .btn:first-of-type').on('click', function() {
+      var btn = $(this);
+      var input = btn.closest('.spinner').find('input');
+      if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {    
+        input.val(parseInt(input.val(), 10) + 1);
+      } else {
+        btn.next("disabled", true);
+      }
+    });
+    $('.spinner .btn:last-of-type').on('click', function() {
+      var btn = $(this);
+      var input = btn.closest('.spinner').find('input');
+      if (input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min'))) {    
+        input.val(parseInt(input.val(), 10) - 1);
+      } else {
+        btn.prev("disabled", true);
+      }
+    });
+
+
 
 
 var cartApp = angular.module ("cartApp", []);
@@ -23,9 +43,10 @@ cartApp.controller("cartCtrl", function ($scope, $http){
     };
     
     $scope.addToCart = function (productId) {
-        $http.put('/emusicstore/rest/cart/processing/'+productId).success(function (data) {
+        $http.put('/emusicstore/rest/cart/processing/'+productId+'/'+parseInt($("#quantity").val())).success(function (data) {
             alert("Your Order is being proccessing Now, Please check My orders Tab for further information!")
         });
+    	
     };
 
     $scope.removeFromCart = function (productId) {
