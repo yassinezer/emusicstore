@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('deploy') {
+        stage('build') {
             steps {
-                bat 'mvn jetty:run'
+                bat 'mvn clean package'
             }
         }
     }
